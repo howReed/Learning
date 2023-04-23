@@ -1,0 +1,60 @@
+<!DOCTYPE html>    
+<head>
+  <title>Form</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="mystyle.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js" 
+  integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" 
+  crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <form id="formId" onsubmit="submitData()">
+    <label>First name</label>
+    <input type="text" class="firstName" id="firstName">
+
+    <label>Last name</label>
+    <input type="text" class="lastName" id="lastName">
+<br>
+    <label>Username</label>
+    <input type="text" class="username" id="username" >
+
+    <label>City</label>
+    <input type="text" class="city" id="city" >
+<br>
+    <input type="button" id="submit" onclick="submitData()" value="SEND">
+    <!-- <div id="showJson"></div> -->
+  </form>
+
+  <script type="text/JavaScript">
+    function submitData(){
+    
+      var firstName = $('#firstName').val();
+      var lastName = $('#lastName').val();
+      var username = $('#username').val();
+      var city = $('#city').val();
+
+
+      jsonObject={
+      "FirstName":"",
+      "LastName":"",
+      "Username":"",
+      "City":"",
+      } 
+      jsonObject.FirstName=firstName;
+      jsonObject.LastName=lastName;
+      jsonObject.Username=username;
+      jsonObject.City=city;
+
+      var str=JSON.stringify(jsonObject);
+      document.write(str);
+      document.getElementById('showJson').innerHTML=str;
+    }
+    </script>
+
+</body>
+</html>
